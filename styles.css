@@ -1,6 +1,8 @@
-*{
-    /* border: dashed 0.5px;*/
+*{    
     box-sizing: border-box;
+}
+*:not(.selectable){
+    /* border: dashed 0.5px;*/
     font-family: sans-serif;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none;   /* Chrome/Safari/Opera */
@@ -74,6 +76,7 @@ body{
     float: left;
     font-size: 11px;
     padding: 4px;
+    pointer-events: visible;
 }
 .list-element-center-area{
     width: 90px;

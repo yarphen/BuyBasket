@@ -18,8 +18,19 @@ $(document).ready(function() {
                     .append($('<div/>')
                         .addClass('list-element-float-container')
                         .append($('<span/>')
-                            .addClass('list-element-name')
-                            .append(mytext))
+                            .addClass('list-element-name selectable')
+                            .append(mytext)
+                            .click(function(){
+                                if(!bought){
+                                    listelement.find('.list-element-name')
+                                    .attr('contenteditable', 'true');
+                                }                 
+                            })
+                            .blur(function(){
+                                mytext=listelement.find('.list-element-name')
+                                .attr('contenteditable', 'false').text();
+                                summaryElement.find('.summary-element-name').text(mytext);
+                            }))
                         .append($('<div/>')
                             .addClass('list-element-right-area')
                             .append($('<div/>')
