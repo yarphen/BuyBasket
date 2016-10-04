@@ -1,0 +1,151 @@
+*{
+    /* border: dashed 0.5px;*/
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+.back{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: cadetblue;
+   
+}
+.content{
+    padding: 10px;
+}
+.editor-column, .summary-column{
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-style: groove;
+    border: 4px;
+    padding: 5px;
+}
+.summary-header,.summary-content,.list-element{
+    border-top: 0.01rem solid gainsboro ;
+}
+.summary-column>.summary-header:first-child,
+.editor-column > .list > .list-element:first-child{
+    border-top: 0;
+}
+.add-line{
+    position: relative;
+}
+.add-button{
+    background-color: darkslateblue;
+    float: right;
+    color: white;
+    border-radius: 5px;
+    padding: 1px;
+    position: relative;
+}
+.add-button:hover{
+    background-color: dodgerblue;
+}
+.list,.list-element,.list-element-nonfloat,.list-element-float-container{
+    position: relative;
+    pointer-events: none;
+}
+.list-element-float{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    pointer-events: none;
+}
+.list-element-name{
+    position: relative;
+    float: left;
+}
+.list-element-center-area{
+    width: 70px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+.minus-button, .plus-button{
+    border-radius: 50%;
+    display: inline-block;
+    width: 20px;
+    height: 22px;
+    padding: 2px;
+    text-align: center;
+    color: white;
+    font-weight: 900;
+    pointer-events: visible;
+}
+.minus-button{
+    background-color: red;
+}
+.minus-button-enabled:hover{
+    background-color: firebrick;
+}
+.plus-button{
+    background-color: limegreen;
+}
+.plus-button-enabled:hover{
+    background-color: green;
+}
+.list-element-count{
+    display:  inline-block;
+    border-radius: 15%;
+    width: 20px;
+    background-color: lightgray;
+    text-align: center;
+}
+.list-element-right-area{
+     display: inline-block;
+    float: right;
+    padding: 1px;
+}
+.buy-button, .delete-button{
+    border-radius: 15%; 
+    display: inline-block;
+    pointer-events: visible;
+}
+.buy-button{
+    background-color: grey;
+}
+.buy-button:hover{
+    background-color: lightgray;
+}
+.delete-button{
+    background-color: indianred;
+}
+.delete-button:hover{
+    background-color: palevioletred;
+}
+
+@media(min-width: 500px){
+    .back{
+         padding-top: 50px;
+    }
+    .content{
+        width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .editor-column{
+        width: 60%;
+        float: left;
+    }
+    .summary-column{
+        width: 30%;
+        float: right;
+    }
+}
+@media(max-width: 500px){
+    .back{
+         padding-top: 0px;
+    }
+    .content{
+        width: 100%;
+        margin: 0;
+    }
+    .editor-column, .summary-column{
+         width: 100%;
+    }
+}
