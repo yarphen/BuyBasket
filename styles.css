@@ -12,6 +12,10 @@
   user-select: none;           /* Non-prefixed version, currently
                                 not supported by any browser */
 }
+.selectable:hover{
+    color: darkblue;
+}
+
 body{
     margin: 0;
     background-color: cadetblue;
@@ -28,6 +32,7 @@ body{
 }
 .button-shadow{
     box-shadow: 2px 2px 1px black;
+    cursor: pointer;
 }
 .editor-column, .summary-column{
     background-color: white;
@@ -168,6 +173,9 @@ body{
 .bought span{
     text-decoration: line-through;
 }
+.bought span:hover{
+    color: unset;
+}
 .badge{
     background-color: gray;
     position: fixed;
@@ -188,11 +196,6 @@ body{
     font-size: 15px;
     padding: 5px;
 }
-.tooltip {
-	border-bottom: 1px dotted #0077AA;
-	cursor: help;
-}
-
 .tooltip::after {
 	content: attr(data-tooltip); 
 	background-color: rgba(127, 127, 127, 0.8);

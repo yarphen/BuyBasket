@@ -18,7 +18,8 @@ $(document).ready(function() {
                     .append($('<div/>')
                         .addClass('list-element-float-container')
                         .append($('<span/>')
-                            .addClass('list-element-name selectable')
+                            .addClass('list-element-name selectable tooltip')
+                            .attr('data-tooltip', 'Edit it!')
                             .append(mytext)
                             .click(function(){
                                 if(!bought){
@@ -28,7 +29,7 @@ $(document).ready(function() {
                             })
                             .blur(function(){
                                 mytext=listelement.find('.list-element-name')
-                                .attr('contenteditable', 'false').text();
+                                .attr('contenteditable', 'false').removeClass('tooltip').text();
                                 summaryElement.find('.summary-element-name').text(mytext);
                             }))
                         .append($('<div/>')
@@ -46,6 +47,8 @@ $(document).ready(function() {
                                             summaryElement.detach().appendTo($('.summary-content.bought')).fadeIn();
                                         });
                                         listelement.addClass('bought');
+                                        listelement.find('.list-element-name')
+                                            .removeClass('tooltip');
                                         listelement.find('.delete-button').fadeOut();
                                     }else{
                                         listelement.find('.minus-button,.plus-button').fadeTo(500, 1);
@@ -55,6 +58,8 @@ $(document).ready(function() {
                                             summaryElement.detach().appendTo($('.summary-content:not(.bought)')).fadeIn();
                                         });
                                         listelement.removeClass('bought');
+                                        listelement.find('.list-element-name')
+                                            .addClass('tooltip');
                                         listelement.find('.delete-button').fadeIn();
                                     }
                                     bought=!bought;
