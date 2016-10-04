@@ -27,7 +27,7 @@ $(document).ready(function() {
                                 .append('BUY')
                                 .click(function() {
                                     if (!bought){
-                                        listelement.find('.minus-button,.plus-button').fadeTo(1000, 0);
+                                        listelement.find('.minus-button,.plus-button').fadeTo(500, 0);
                                          listelement.find('.buy-button')
                                          .text('UNBUY');
                                         summaryElement.fadeOut(function(){
@@ -36,7 +36,7 @@ $(document).ready(function() {
                                         listelement.addClass('bought');
                                         listelement.find('.delete-button').fadeOut();
                                     }else{
-                                        listelement.find('.minus-button,.plus-button').fadeTo(1000, 1);
+                                        listelement.find('.minus-button,.plus-button').fadeTo(500, 1);
                                         listelement.find('.buy-button')
                                          .text('BUY');
                                         summaryElement.fadeOut(function(){
@@ -73,8 +73,14 @@ $(document).ready(function() {
                                 if (count == 1) {
                                     button.removeClass('minus-button-enabled');
                                 }
-                                count1.text(count);
-                                count2.text(count);
+                                count1.fadeOut(function(){
+                                    count1.text(count);
+                                    count1.fadeIn();
+                                })
+                                count2.fadeOut(function(){
+                                    count2.text(count);
+                                    count2.fadeIn();
+                                })
                             }))
                         .append($('<div/>')
                             .addClass('list-element-count')
@@ -109,6 +115,7 @@ $(document).ready(function() {
     addElement('Cucumbers');
     $('.add-button').click(function() {
         var text = $('.input-field').val();
+        $('.input-field').val('');
         addElement(text);
     });
 });
