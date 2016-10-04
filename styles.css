@@ -60,6 +60,8 @@ body{
 .list-element-name{
     position: relative;
     float: left;
+    font-size: 11px;
+    padding: 4px;
 }
 .list-element-center-area{
     width: 90px;
@@ -135,6 +137,10 @@ body{
     padding: 1px;
     margin: 1px;
 }
+.summary-element-name{
+    font-size: 11px;
+    padding: 4px;
+}
 .summary-element-count{
     border-radius: 50%;
     width: 20px;
@@ -142,6 +148,9 @@ body{
     background-color: orange;
     text-align: center;
     display: inline-block;
+}
+.bought span{
+    text-decoration: line-through;
 }
 @media(min-width: 500px){
     .back{

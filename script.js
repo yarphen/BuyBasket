@@ -2,6 +2,7 @@ $(document).ready(function() {
     var addElement = function(mytext) {
         if (mytext) {
             var bought = false;
+            var count = 1;
             var summaryElement = $('<div/>')
                 .addClass('summary-element')
                 .append($('<span/>')
@@ -25,18 +26,24 @@ $(document).ready(function() {
                                 .addClass('buy-button')
                                 .append('BUY')
                                 .click(function() {
-                                    if (bought){
-                                        listelement.find('.minus-button,.plus-button').css('visibility', 'hidden');
+                                    if (!bought){
+                                        listelement.find('.minus-button,.plus-button').fadeTo(1000, 0);
                                          listelement.find('.buy-button')
                                          .text('UNBUY');
-                                        summaryElement.detach();
-                                        summaryElement.appendTo($('.summary-content.bought'));
+                                        summaryElement.fadeOut(function(){
+                                            summaryElement.detach().appendTo($('.summary-content.bought')).fadeIn();
+                                        });
+                                        listelement.addClass('bought');
+                                        listelement.find('.delete-button').fadeOut();
                                     }else{
-                                        listelement.find('.minus-button,.plus-button').css('visibility', 'visible');
-                                         listelement.find('.buy-button')
+                                        listelement.find('.minus-button,.plus-button').fadeTo(1000, 1);
+                                        listelement.find('.buy-button')
                                          .text('BUY');
-                                        summaryElement.detach();
-                                        summaryElement.appendTo($('.summary-content:not(.bought)'));
+                                        summaryElement.fadeOut(function(){
+                                            summaryElement.detach().appendTo($('.summary-content:not(.bought)')).fadeIn();
+                                        });
+                                        listelement.removeClass('bought');
+                                        listelement.find('.delete-button').fadeIn();
                                     }
                                     bought=!bought;
                                 }))
@@ -44,8 +51,12 @@ $(document).ready(function() {
                                 .addClass('delete-button')
                                 .append('×')
                                 .click(function() {
-                                    summaryElement.remove();
-                                    listelement.remove();
+                                    summaryElement.fadeOut(function(){
+                                        summaryElement.remove();
+                                    });
+                                    listelement.fadeOut(function(){
+                                        listelement.remove();
+                                    });
                                 })))))
                 .append($('<div/>')
                     .addClass('list-element-nonfloat')
@@ -58,9 +69,8 @@ $(document).ready(function() {
                                 var count1 = listelement.find('.list-element-count');
                                 var count2 = summaryElement.find('.summary-element-count');
                                 var button = listelement.find('.minus-button');
-                                var count = parseInt(count1.text());
                                 if (count > 1) count--;
-                                if (count > 1) {
+                                if (count == 1) {
                                     button.removeClass('minus-button-enabled');
                                 }
                                 count1.text(count);
@@ -77,16 +87,21 @@ $(document).ready(function() {
                                 var count1 = listelement.find('.list-element-count');
                                 var count2 = summaryElement.find('.summary-element-count');
                                 var button = listelement.find('.minus-button');
-                                var count = parseInt(count1.text());
                                 count++;
                                 if (count == 2) {
                                     button.addClass('minus-button-enabled');
                                 }
-                                count1.text(count);
-                                count2.text(count);
+                                count1.fadeOut(function(){
+                                    count1.text(count);
+                                    count1.fadeIn();
+                                })
+                                count2.fadeOut(function(){
+                                    count2.text(count);
+                                    count2.fadeIn();
+                                })
                             }))));
-            listelement.appendTo($('.list'));
-            summaryElement.appendTo($('.summary-content:not(.bought)'))
+            listelement.fadeIn().appendTo($('.list'));
+            summaryElement.fadeIn().appendTo($('.summary-content:not(.bought)'));
         }
     }
     addElement('Potatoes');
