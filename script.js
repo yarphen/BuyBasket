@@ -23,13 +23,14 @@ $(document).ready(function() {
                         .append($('<div/>')
                             .addClass('list-element-right-area')
                             .append($('<div/>')
-                                .addClass('buy-button')
+                                .addClass('buy-button button-shadow tooltip')
                                 .append('BUY')
+                                .attr('data-tooltip', 'Press this button to buy element')
                                 .click(function() {
                                     if (!bought){
                                         listelement.find('.minus-button,.plus-button').fadeTo(500, 0);
                                          listelement.find('.buy-button')
-                                         .text('UNBUY');
+                                         .text('UNBUY').attr('data-tooltip', 'Press this button to unbuy element');
                                         summaryElement.fadeOut(function(){
                                             summaryElement.detach().appendTo($('.summary-content.bought')).fadeIn();
                                         });
@@ -38,7 +39,7 @@ $(document).ready(function() {
                                     }else{
                                         listelement.find('.minus-button,.plus-button').fadeTo(500, 1);
                                         listelement.find('.buy-button')
-                                         .text('BUY');
+                                         .text('BUY').attr('data-tooltip', 'Press this button to buy element');
                                         summaryElement.fadeOut(function(){
                                             summaryElement.detach().appendTo($('.summary-content:not(.bought)')).fadeIn();
                                         });
@@ -48,8 +49,9 @@ $(document).ready(function() {
                                     bought=!bought;
                                 }))
                             .append($('<div/>')
-                                .addClass('delete-button')
+                                .addClass('delete-button button-shadow tooltip')
                                 .append('×')
+                                .attr('data-tooltip', 'Press this button to delete element')
                                 .click(function() {
                                     summaryElement.fadeOut(function(){
                                         summaryElement.remove();
@@ -63,7 +65,8 @@ $(document).ready(function() {
                     .append($('<div/>')
                         .addClass('list-element-center-area')
                         .append($('<div/>')
-                            .addClass('minus-button')
+                            .addClass('minus-button button-shadow tooltip')
+                            .attr('data-tooltip', 'Decrease count of elements')
                             .append('-')
                             .click(function() {
                                 var count1 = listelement.find('.list-element-count');
@@ -86,8 +89,8 @@ $(document).ready(function() {
                             .addClass('list-element-count')
                             .append('1'))
                         .append($('<div/>')
-                            .addClass('plus-button')
-                            .addClass('plus-button-enabled')
+                            .addClass('plus-button button-shadow tooltip plus-button-enabled')
+                            .attr('data-tooltip', 'Increase count of elements')
                             .append('+')
                             .click(function() {
                                 var count1 = listelement.find('.list-element-count');
@@ -110,12 +113,24 @@ $(document).ready(function() {
             summaryElement.fadeIn().appendTo($('.summary-content:not(.bought)'));
         }
     }
-    addElement('Potatoes');
-    addElement('Tomatoes');
-    addElement('Cucumbers');
     $('.add-button').click(function() {
         var text = $('.input-field').val();
         $('.input-field').val('');
         addElement(text);
     });
+    $('.badge').mouseenter(function(){
+        $('.badge').animate({
+            backgroundColor:"#00008B",
+            bottom:"0px"
+        });
+    });
+    $('.badge').mouseleave(function(){
+        $('.badge').animate({
+            bottom:"-50px",
+            backgroundColor:"#808080"
+        });
+    });
+    addElement('Potatoes');
+    addElement('Tomatoes');
+    addElement('Cucumbers');
 });

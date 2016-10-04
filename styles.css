@@ -21,6 +21,12 @@ body{
 .content{
     padding: 10px;
 }
+.column-shadow{
+    box-shadow: 5px 5px 2px black;
+}
+.button-shadow{
+    box-shadow: 2px 2px 1px black;
+}
 .editor-column, .summary-column{
     background-color: white;
     border-radius: 5px;
@@ -29,7 +35,6 @@ body{
     border-style: groove;
     border: 4px;
     padding: 5px;
-    box-shadow: 5px 5px 2px black;
 }
 .summary-header,.summary-content,.list-element{
     border-top: 0.01rem solid gainsboro ;
@@ -49,7 +54,6 @@ body{
     color: white;
     border-radius: 5px;
     position: relative;
-    box-shadow: 2px 2px 1px black;
 }
 .add-button:hover{
     background-color: dodgerblue;
@@ -88,7 +92,6 @@ body{
     font-weight: 900;
     pointer-events: visible;
     margin: 2px;
-    box-shadow: 2px 2px 1px black;
 }
 .minus-button{
     background-color: red;
@@ -121,7 +124,6 @@ body{
     pointer-events: visible;
     text-align: center;
     margin: 2px;
-    box-shadow: 2px 2px 1px black;
 }
 .buy-button{
     background-color: grey;
@@ -162,6 +164,51 @@ body{
 }
 .bought span{
     text-decoration: line-through;
+}
+.badge{
+    background-color: gray;
+    position: fixed;
+    bottom: -50px;
+    height: 70px;
+    left: 10%;
+    border-radius: 5px;
+    color: aliceblue;
+    text-align: center;
+}
+.badge-title{
+    height: 20px;
+    font-weight: bolder;
+}
+.badge-content{
+    height: 50px;
+    font-family: fantasy;
+    font-size: 15px;
+    padding: 5px;
+}
+.tooltip {
+	border-bottom: 1px dotted #0077AA;
+	cursor: help;
+}
+
+.tooltip::after {
+	content: attr(data-tooltip); 
+	background-color: rgba(127, 127, 127, 0.8);
+	border-radius: 8px;
+	color: white;
+	opacity: 0;
+    padding: 2px;
+    font-size: 6px;
+    font-weight: 500;
+	position: absolute;
+	visibility: hidden;
+	transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    z-index: 1;
+}	
+.tooltip:hover::after {
+	opacity: 1; /* Показываем его */
+	visibility: visible;
 }
 @media(min-width: 500px){
     .back{
