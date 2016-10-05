@@ -199,17 +199,17 @@ body{
 .tooltip::after {
 	content: attr(data-tooltip); 
 	background-color: rgba(127, 0, 127, 0.8);
-	border-radius: 8px;
+	border-radius: 16px;
 	color: white;
 	opacity: 0;
-    padding: 2px;
-    font-size: 6px;
+    padding: 4px;
+    font-size: 12px;
     font-weight: 500;
 	position: absolute;
 	visibility: hidden;
-    margin-top: -20px;
-    margin-left: -20px;
-    min-width: 35px;
+    margin-top: -40px;
+    margin-left: -40px;
+    min-width: 70px;
     text-align: center;
 	transition-property: all;
     transition-duration: 0.5s;
