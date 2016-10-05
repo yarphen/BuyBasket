@@ -31,6 +31,11 @@ $(document).ready(function() {
                                 mytext=listelement.find('.list-element-name')
                                 .attr('contenteditable', 'false').removeClass('tooltip').text();
                                 summaryElement.find('.summary-element-name').text(mytext);
+                            })
+                            .keydown(function(evt){
+                                if (evt.keyCode==13){
+                                    listelement.find('.list-element-name').blur();
+                                }
                             }))
                         .append($('<div/>')
                             .addClass('list-element-right-area')
