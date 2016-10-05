@@ -220,21 +220,30 @@ body{
 	opacity: 1; /* Показываем его */
 	visibility: visible;
 }
+@media(min-width: 1200px){
+    .content{
+        width: 1200px;
+    }
+}
+@media(min-width: 500px) and (max-width: 1200px){
+    .content{
+        width: 100%;
+    }
+}
 @media(min-width: 500px){
     .back{
          padding-top: 50px;
     }
     .content{
-        width: 500px;
         margin-left: auto;
         margin-right: auto;
     }
     .editor-column{
-        width: 60%;
+        width: 63%;
         float: left;
     }
     .summary-column{
-        width: 30%;
+        width: 33%;
         float: right;
     }
 }
