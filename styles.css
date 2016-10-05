@@ -207,6 +207,7 @@ body{
     font-weight: 500;
 	position: absolute;
 	visibility: hidden;
+    margin-top: -55px;
     margin-left: -40px;
     min-width: 70px;
     text-align: center;
