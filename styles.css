@@ -207,7 +207,6 @@ body{
     font-weight: 500;
 	position: absolute;
 	visibility: hidden;
-    margin-top: -40px;
     margin-left: -40px;
     min-width: 70px;
     text-align: center;
@@ -217,8 +216,12 @@ body{
     z-index: 1;
 }	
 .tooltip:hover::after {
-	opacity: 1; /* Показываем его */
+	opacity: 1;
 	visibility: visible;
+}
+.tooltip::after:hover{
+    opacity: 0;
+	visibility: hidden;
 }
 @media(min-width: 1200px){
     .content{
