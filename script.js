@@ -42,12 +42,12 @@ $(document).ready(function() {
                             .append($('<div/>')
                                 .addClass('buy-button button-shadow tooltip')
                                 .append('BUY')
-                                .attr('data-tooltip', 'Press this button to buy element')
+                                .attr('data-tooltip', 'Press to buy element')
                                 .click(function() {
                                     if (!bought){
                                         listelement.find('.minus-button,.plus-button').fadeTo(500, 0);
-                                         listelement.find('.buy-button')
-                                         .text('UNBUY').attr('data-tooltip', 'Press this button to unbuy element');
+                                        listelement.find('.buy-button')
+                                            .text('UNBUY').attr('data-tooltip', 'Press to unbuy element');
                                         summaryElement.fadeOut(function(){
                                             summaryElement.detach().appendTo($('.summary-content.bought')).fadeIn();
                                         });
@@ -58,7 +58,7 @@ $(document).ready(function() {
                                     }else{
                                         listelement.find('.minus-button,.plus-button').fadeTo(500, 1);
                                         listelement.find('.buy-button')
-                                         .text('BUY').attr('data-tooltip', 'Press this button to buy element');
+                                            .text('BUY').attr('data-tooltip', 'Press to buy element');
                                         summaryElement.fadeOut(function(){
                                             summaryElement.detach().appendTo($('.summary-content:not(.bought)')).fadeIn();
                                         });
@@ -72,7 +72,7 @@ $(document).ready(function() {
                             .append($('<div/>')
                                 .addClass('delete-button button-shadow tooltip')
                                 .append('×')
-                                .attr('data-tooltip', 'Press this button to delete element')
+                                .attr('data-tooltip', 'Press to delete element')
                                 .click(function() {
                                     summaryElement.fadeOut(function(){
                                         summaryElement.remove();
@@ -87,7 +87,7 @@ $(document).ready(function() {
                         .addClass('list-element-center-area')
                         .append($('<div/>')
                             .addClass('minus-button button-shadow tooltip')
-                            .attr('data-tooltip', 'Decrease count of elements')
+                            .attr('data-tooltip', 'Press to decrease count')
                             .append('-')
                             .click(function() {
                                 var count1 = listelement.find('.list-element-count');
@@ -111,7 +111,7 @@ $(document).ready(function() {
                             .append('1'))
                         .append($('<div/>')
                             .addClass('plus-button button-shadow tooltip plus-button-enabled')
-                            .attr('data-tooltip', 'Increase count of elements')
+                            .attr('data-tooltip', 'Press to increase count')
                             .append('+')
                             .click(function() {
                                 var count1 = listelement.find('.list-element-count');
