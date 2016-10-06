@@ -45,7 +45,8 @@ $(document).ready(function() {
                                 .attr('data-tooltip', 'Press to buy element')
                                 .click(function() {
                                     if (!bought){
-                                        listelement.find('.minus-button,.plus-button').fadeTo(500, 0);
+                                        listelement.find('.minus-button,.plus-button').fadeTo(500, 0)
+                                            .css('pointer-events', 'none');
                                         listelement.find('.buy-button')
                                             .text('UNBUY').attr('data-tooltip', 'Press to unbuy element');
                                         summaryElement.fadeOut(function(){
@@ -56,7 +57,8 @@ $(document).ready(function() {
                                             .removeClass('tooltip');
                                         listelement.find('.delete-button').fadeOut();
                                     }else{
-                                        listelement.find('.minus-button,.plus-button').fadeTo(500, 1);
+                                        listelement.find('.minus-button,.plus-button').fadeTo(500, 1)
+                                            .css('pointer-events', 'all');
                                         listelement.find('.buy-button')
                                             .text('BUY').attr('data-tooltip', 'Press to buy element');
                                         summaryElement.fadeOut(function(){
